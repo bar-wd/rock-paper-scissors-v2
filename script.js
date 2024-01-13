@@ -14,8 +14,6 @@ function getPlayerChoice(string) {
   playerChoice = prompt('Please choose rock, paper, or scissors');
 }
 
-getPlayerChoice();
-
 // If playerChoice === null then make user pick again
 // Otherwise convert string to lowercase
 
@@ -44,14 +42,12 @@ function checkPlayerChoice() {
 function playSingleRound(playerSelection, computerSelection) {
   // If a tie, replay the round
 
-  console.log(playerSelection, 'player', computerSelection, 'computer');
-
   if (playerSelection === computerSelection) {
     alert('Tie!!!');
-    getPlayerChoice();
-    checkNull();
-    checkPlayerChoice();
-    playSingleRound(playerChoice, getComputerChoice());
+    // getPlayerChoice();
+    // checkNull();
+    // checkPlayerChoice();
+    // playSingleRound(playerChoice, getComputerChoice());
   }
 
   // Winning scenarios for player
@@ -66,4 +62,24 @@ function playSingleRound(playerSelection, computerSelection) {
   }
 }
 
-playSingleRound(playerChoice, getComputerChoice());
+// playSingleRound(playerChoice, getComputerChoice());
+
+function game() {
+  let roundTracker = 1;
+  let playerScore = 0;
+  let computerScore = 0;
+
+  // Play 5 rounds in a row
+  while (roundTracker <= 5) {
+    getPlayerChoice();
+    checkNull();
+    checkPlayerChoice();
+    playSingleRound(playerChoice, getComputerChoice());
+    ++roundTracker;
+    console.log(roundTracker);
+  }
+  //   console.log(playerSelection, 'player', computerSelection, 'computer');
+  console.log('5 rounds game over');
+}
+
+game();
