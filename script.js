@@ -46,10 +46,6 @@ function playSingleRound(playerSelection, computerSelection) {
 
   if (playerSelection === computerSelection) {
     alert('Tie!!!');
-    // getPlayerChoice();
-    // checkNull();
-    // checkPlayerChoice();
-    // playSingleRound(playerChoice, getComputerChoice());
   }
 
   // Winning scenarios for player
@@ -66,8 +62,6 @@ function playSingleRound(playerSelection, computerSelection) {
   }
 }
 
-// playSingleRound(playerChoice, getComputerChoice());
-
 function game() {
   let roundTracker = 1;
 
@@ -79,12 +73,7 @@ function game() {
     checkPlayerChoice();
     playSingleRound(playerChoice, getComputerChoice());
     ++roundTracker;
-    console.log(
-      'Player Score: ',
-      playerScore,
-      'Computer Score ',
-      computerScore
-    );
+    console.log('Player Score:', playerScore, 'Computer Score:', computerScore);
   }
 
   playerScore > computerScore
