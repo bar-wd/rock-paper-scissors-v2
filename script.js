@@ -1,4 +1,3 @@
-let playerChoice;
 let playerScore = 0;
 let computerScore = 0;
 
@@ -12,34 +11,39 @@ function getComputerChoice() {
     : 'scissors';
 }
 
-function getPlayerChoice(string) {
-  playerChoice = prompt('Please choose rock, paper, or scissors');
+function playerChoicePrompt() {
+  return prompt('Please choose rock, paper, or scissors');
 }
 
-// If playerChoice === null then make user pick again
-// Otherwise convert string to lowercase
+function getPlayerChoice() {
+  let playerChoice = playerChoicePrompt();
 
-function checkNull() {
-  if (playerChoice === null) {
-    alert("Don't want to play?");
-    getPlayerChoice();
-  } else {
-    playerChoice = playerChoice.toLowerCase();
+  // Keep asking the user for an input when clicking cancel
+
+  while (playerChoice === null) {
+    alert('Please input rock, paper, or scissors');
+    playerChoice = playerChoicePrompt();
   }
-}
-// Must only accept 'rock', 'paper', 'scissors'
-// If not, make user pick again
 
-function checkPlayerChoice() {
-  if (
+  // Can't make null lowercase, this will make the user input lowercase
+  // once it is no longer null
+
+  playerChoice = playerChoice.toLowerCase();
+
+  while (
     playerChoice !== 'rock' &&
     playerChoice !== 'paper' &&
     playerChoice !== 'scissors'
   ) {
     alert('Must enter rock, paper, or scissors');
-    getPlayerChoice();
+    playerChoice = playerChoicePrompt().toLowerCase();
   }
+
+  return playerChoice;
 }
+
+// Must only accept 'rock', 'paper', 'scissors'
+// If not, make user pick again
 
 function playSingleRound(playerSelection, computerSelection) {
   // If a tie, replay the round
@@ -66,12 +70,9 @@ function game() {
   let roundTracker = 1;
 
   // Play 5 rounds in a row
-  while (roundTracker <= 5) {
+  while (roundTracker <= 1) {
     console.log(`Round ${roundTracker}`);
-    getPlayerChoice();
-    checkNull();
-    checkPlayerChoice();
-    playSingleRound(playerChoice, getComputerChoice());
+    playSingleRound(getPlayerChoice(), getComputerChoice());
     ++roundTracker;
     console.log('Player Score:', playerScore, 'Computer Score:', computerScore);
   }
