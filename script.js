@@ -1,4 +1,6 @@
 let playerChoice;
+let playerScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
   let computerChoice = Math.floor(Math.random() * 3);
@@ -57,8 +59,10 @@ function playSingleRound(playerSelection, computerSelection) {
     (playerSelection === 'scissors' && computerSelection === 'paper')
   ) {
     alert('Good job! You won!');
+    playerScore++;
   } else {
     alert('Aww...try again.');
+    computerScore++;
   }
 }
 
@@ -66,20 +70,26 @@ function playSingleRound(playerSelection, computerSelection) {
 
 function game() {
   let roundTracker = 1;
-  let playerScore = 0;
-  let computerScore = 0;
 
   // Play 5 rounds in a row
   while (roundTracker <= 5) {
+    console.log(`Round ${roundTracker}`);
     getPlayerChoice();
     checkNull();
     checkPlayerChoice();
     playSingleRound(playerChoice, getComputerChoice());
     ++roundTracker;
-    console.log(roundTracker);
+    console.log(
+      'Player Score: ',
+      playerScore,
+      'Computer Score ',
+      computerScore
+    );
   }
-  //   console.log(playerSelection, 'player', computerSelection, 'computer');
-  console.log('5 rounds game over');
+
+  playerScore > computerScore
+    ? console.log('You Win!!!')
+    : console.log('You Lose!!!');
 }
 
 game();
