@@ -29,20 +29,9 @@
 
 let playerScore = 0;
 let computerScore = 0;
-
-function getComputerChoice() {
-  let computerChoice = Math.floor(Math.random() * 3);
-
-  return computerChoice === 0
-    ? 'rock'
-    : computerChoice === 1
-    ? 'paper'
-    : 'scissors';
-}
-
-///////////////////////////////////////////////
 let playerSelection;
 const playerSelectionLogo = document.querySelector('.player-selection');
+const computerSelectionLogo = document.querySelector('.computer-selection');
 
 const rock = document.querySelector('.rock');
 const paper = document.querySelector('.paper');
@@ -51,20 +40,30 @@ const scissors = document.querySelector('.scissors');
 rock.addEventListener('click', () => {
   playerSelection = 'rock';
   playerSelectionLogo.innerText = playerSelection;
+  getComputerChoice();
 });
 
 paper.addEventListener('click', () => {
   playerSelection = 'paper';
   playerSelectionLogo.innerText = playerSelection;
+  getComputerChoice();
 });
 
 scissors.addEventListener('click', () => {
   playerSelection = 'scissors';
   playerSelectionLogo.innerText = playerSelection;
+  getComputerChoice();
 });
 
-////////////////////////////////////////////////////
-// Player's selection is shown on the screen
+function getComputerChoice() {
+  let computerChoice = Math.floor(Math.random() * 3);
+
+  return computerChoice === 0
+    ? (computerSelectionLogo.innerText = 'rock')
+    : computerChoice === 1
+    ? (computerSelectionLogo.innerText = 'paper')
+    : (computerSelectionLogo.innerText = 'scissors');
+}
 
 ///////////////////////////////////////////////
 function getPlayerChoice() {
