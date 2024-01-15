@@ -40,10 +40,36 @@ function getComputerChoice() {
     : 'scissors';
 }
 
-function playerChoicePrompt() {
-  return prompt('Please choose rock, paper, or scissors');
-}
+// function playerChoicePrompt() {
+//   return prompt('Please choose rock, paper, or scissors');
+// }
+//////////////////////////////////
 
+// click icon to choose user selection
+// each icon is different
+
+let userSelection;
+
+const rock = document.querySelector('.rock');
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
+
+rock.addEventListener('click', () => {
+  userSelection = 'rock';
+  console.log(userSelection);
+});
+
+paper.addEventListener('click', () => {
+  userSelection = 'paper';
+  console.log(userSelection);
+});
+
+scissors.addEventListener('click', () => {
+  userSelection = 'scissors';
+  console.log(userSelection);
+});
+
+//////////////////
 function getPlayerChoice() {
   let playerChoice = playerChoicePrompt();
 

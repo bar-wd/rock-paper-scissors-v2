@@ -50,6 +50,15 @@ body {
   gap: 30px;
 }
 
+.rock {
+}
+
+.paper {
+}
+
+.scissors {
+}
+
 .footer {
   border-style: solid;
   border-color: black;
