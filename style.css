@@ -54,5 +54,7 @@ body {
   border-style: solid;
   border-color: black;
   height: 100px;
-  /* flex: 1; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
