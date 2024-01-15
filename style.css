@@ -37,14 +37,20 @@ body {
   text-align: center;
 }
 
-.logos-wrapper {
+.selection-wrapper {
   display: flex;
   /* flex-direction: column; */
   justify-content: center;
   gap: 30px;
 }
 
-.user-choices {
+.player-selection {
+}
+
+.computer-selection {
+}
+
+.player-choices {
   display: flex;
   justify-content: center;
   gap: 30px;
