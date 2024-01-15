@@ -30,77 +30,94 @@
 let playerScore = 0;
 let computerScore = 0;
 let playerSelection;
+let computerSelection;
 const playerSelectionLogo = document.querySelector('.player-selection');
 const computerSelectionLogo = document.querySelector('.computer-selection');
+const playerScoreEl = document.querySelector('.player-score');
+const computerScoreEl = document.querySelector('.computer-score');
+
+playerScoreEl.innerText = playerScore;
+computerScoreEl.innerText = computerScore;
 
 const rock = document.querySelector('.rock');
 const paper = document.querySelector('.paper');
 const scissors = document.querySelector('.scissors');
 
+// reduce this code, add one event listener to all the divs and if it matches the text then change accordingly
+
 rock.addEventListener('click', () => {
   playerSelection = 'rock';
   playerSelectionLogo.innerText = playerSelection;
   getComputerChoice();
+  computerSelectionLogo.innerText = computerSelection;
+  playSingleRound(playerSelection, computerSelection);
+  playerScoreEl.innerText = playerScore;
+  computerScoreEl.innerText = computerScore;
 });
 
 paper.addEventListener('click', () => {
   playerSelection = 'paper';
   playerSelectionLogo.innerText = playerSelection;
   getComputerChoice();
+  computerSelectionLogo.innerText = computerSelection;
+  playSingleRound(playerSelection, computerSelection);
+  playerScoreEl.innerText = playerScore;
+  computerScoreEl.innerText = computerScore;
 });
 
 scissors.addEventListener('click', () => {
   playerSelection = 'scissors';
   playerSelectionLogo.innerText = playerSelection;
   getComputerChoice();
+  computerSelectionLogo.innerText = computerSelection;
+  playSingleRound(playerSelection, computerSelection);
+  playerScoreEl.innerText = playerScore;
+  computerScoreEl.innerText = computerScore;
 });
+
+///////////////////////////////////////////////////
 
 function getComputerChoice() {
   let computerChoice = Math.floor(Math.random() * 3);
 
   return computerChoice === 0
-    ? (computerSelectionLogo.innerText = 'rock')
+    ? (computerSelection = 'rock')
     : computerChoice === 1
-    ? (computerSelectionLogo.innerText = 'paper')
-    : (computerSelectionLogo.innerText = 'scissors');
+    ? (computerSelection = 'paper')
+    : (computerSelection = 'scissors');
 }
+
+////////////////////////////
+// add score keeping
 
 ///////////////////////////////////////////////
-function getPlayerChoice() {
-  let playerChoice = playerChoicePrompt();
+// function getPlayerChoice() {
+//   let playerChoice = playerChoicePrompt();
 
-  // Keep asking the user for an input when clicking cancel
+//   while (playerChoice === null) {
+//     alert('Please input rock, paper, or scissors');
+//     playerChoice = playerChoicePrompt();
+//   }
 
-  while (playerChoice === null) {
-    alert('Please input rock, paper, or scissors');
-    playerChoice = playerChoicePrompt();
-  }
+//   playerChoice = playerChoice.toLowerCase();
 
-  // Can't make null lowercase, this will make the user input lowercase
-  // once it is no longer null
+//   while (
+//     playerChoice !== 'rock' &&
+//     playerChoice !== 'paper' &&
+//     playerChoice !== 'scissors'
+//   ) {
+//     alert('Must enter rock, paper, or scissors');
+//     playerChoice = playerChoicePrompt().toLowerCase();
+//   }
 
-  playerChoice = playerChoice.toLowerCase();
-
-  while (
-    playerChoice !== 'rock' &&
-    playerChoice !== 'paper' &&
-    playerChoice !== 'scissors'
-  ) {
-    alert('Must enter rock, paper, or scissors');
-    playerChoice = playerChoicePrompt().toLowerCase();
-  }
-
-  return playerChoice;
-}
-
-// Must only accept 'rock', 'paper', 'scissors'
-// If not, make user pick again
+//   return playerChoice;
+// }
 
 function playSingleRound(playerSelection, computerSelection) {
   // If a tie, replay the round
 
   if (playerSelection === computerSelection) {
-    alert('Tie!!!');
+    console.log('Tie!!!');
   }
 
   // Winning scenarios for player
@@ -109,10 +126,10 @@ function playSingleRound(playerSelection, computerSelection) {
     (playerSelection === 'rock' && computerSelection === 'scissors') ||
     (playerSelection === 'scissors' && computerSelection === 'paper')
   ) {
-    alert('Good job! You won!');
+    console.log('Good job! You won!');
     playerScore++;
   } else {
-    alert('Aww...try again.');
+    console.log('Aww...try again.');
     computerScore++;
   }
 }
