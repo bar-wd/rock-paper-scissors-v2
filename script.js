@@ -1,3 +1,32 @@
+// For now, remove the logic that plays exactly five rounds.
+// Create three buttons, one for each selection. Add an event listener to the buttons that call your playRound function with the correct playerSelection every time a button is clicked. (you can keep the console.logs for this step)
+// Add a div for displaying results and change all of your console.logs into DOM methods.
+// Display the running score, and announce a winner of the game once one player reaches 5 points.
+// You will likely have to refactor (rework/rewrite) your original code to make it work for this. That’s OK! Reworking old code is an important part of a programmer’s life.
+
+///////////////////////////////////////////////////////////////////////////////////
+// Plan
+
+// 1. Remove the prompts
+
+// 2 Remove the 5 round logic
+
+// 3. Three buttons for user to select their choice
+
+// 4. Icons that show user's choice & computer's choice
+
+// 5. Score tracker
+
+// 6. Round tracker
+
+// 7. First to 5 wins
+
+// 8. Reset the game
+
+// 9. Press the button and it highlights it or does something with it
+
+'use-strict';
+
 let playerScore = 0;
 let computerScore = 0;
 
@@ -82,4 +111,4 @@ function game() {
     : console.log('You Lose!!!');
 }
 
-game();
+// game();

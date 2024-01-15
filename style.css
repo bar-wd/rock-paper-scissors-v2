@@ -1,0 +1,33 @@
+html {
+  height: 100vh;
+}
+
+body {
+  min-height: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;
+  align-items: stretch;  */
+  /* flex: 1; */
+}
+
+.header {
+  border-style: solid;
+  border-color: black;
+  height: 100px;
+  /* flex: 1; */
+}
+
+.container {
+  border-style: solid;
+  border-color: black;
+  /* height: 100px; */
+  flex: 1;
+}
+
+.footer {
+  border-style: solid;
+  border-color: black;
+  height: 100px;
+  /* flex: 1; */
+}
