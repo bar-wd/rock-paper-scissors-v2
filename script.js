@@ -40,10 +40,9 @@ const rock = document.querySelector('.rock');
 const paper = document.querySelector('.paper');
 const scissors = document.querySelector('.scissors');
 
-playerScoreEl.innerText = playerScore;
-computerScoreEl.innerText = computerScore;
+// playerScoreEl.innerText = playerScore;
+// computerScoreEl.innerText = computerScore;
 
-// reduce this code, add one event listener to all the divs and if it matches the text then change accordingly
 ////////////////////////////////////////////////////////////////
 
 playerChoices.addEventListener('click', e => {
@@ -53,8 +52,7 @@ playerChoices.addEventListener('click', e => {
   setSelectionImg();
   playSingleRound(playerSelection, computerSelection);
   setScores();
-
-  // gameOver();
+  gameOver();
 });
 
 ///////////////////////////////////////////////////
@@ -79,9 +77,11 @@ function setSelectionImg() {
   computerSelectionLogo.innerText = computerSelection;
 }
 
+function executeGame() {}
+
 function gameOver() {
   if (playerScore === 5 || computerScore === 5) {
-    alert('Game Over');
+    playerChoices.classList.toggle('disable-click');
   }
 }
 
