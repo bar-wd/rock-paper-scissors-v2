@@ -1,30 +1,3 @@
-// For now, remove the logic that plays exactly five rounds.
-// Create three buttons, one for each selection. Add an event listener to the buttons that call your playRound function with the correct playerSelection every time a button is clicked. (you can keep the console.logs for this step)
-// Add a div for displaying results and change all of your console.logs into DOM methods.
-// Display the running score, and announce a winner of the game once one player reaches 5 points.
-// You will likely have to refactor (rework/rewrite) your original code to make it work for this. That’s OK! Reworking old code is an important part of a programmer’s life.
-
-///////////////////////////////////////////////////////////////////////////////////
-// Plan
-
-// 1. Remove the prompts
-
-// 2 Remove the 5 round logic
-
-// 3. Three buttons for user to select their choice
-
-// 4. Icons that show user's choice & computer's choice
-
-// 5. Score tracker
-
-// 6. Round tracker
-
-// 7. First to 5 wins
-
-// 8. Reset the game
-
-// 9. Press the button and it highlights it or does something with it
-
 'use-strict';
 
 let playerScore = 0;
@@ -37,6 +10,7 @@ const playerScoreEl = document.querySelector('.player-score');
 const computerScoreEl = document.querySelector('.computer-score');
 const playerChoices = document.querySelector('.player-choices');
 const chooseCarefully = document.querySelector('.choose-carefully');
+const rockBeatsPaperMsg = document.querySelector('.score-txt');
 
 ////////////////////////////////////////////////////////////////
 
@@ -72,8 +46,6 @@ function setSelectionImg() {
   computerSelectionLogo.innerText = computerSelection;
 }
 
-function executeGame() {}
-
 function gameOver() {
   if (playerScore === 5 || computerScore === 5) {
     playerChoices.classList.toggle('disable-click');
@@ -87,6 +59,7 @@ function playSingleRound(playerSelection, computerSelection) {
 
   if (playerSelection === computerSelection) {
     chooseCarefully.innerText = "It's a tie!";
+    rockBeatsPaperMsg.innerText = `${playerSelection} ties ${computerSelection}`;
   }
 
   // Winning scenarios for player
@@ -96,27 +69,27 @@ function playSingleRound(playerSelection, computerSelection) {
     (playerSelection === 'scissors' && computerSelection === 'paper')
   ) {
     chooseCarefully.innerText = 'You won!';
+    rockBeatsPaperMsg.innerText = `${playerSelection} beats ${computerSelection}`;
     playerScore++;
   } else {
     chooseCarefully.innerText = 'You lost!';
+    rockBeatsPaperMsg.innerText = `${computerSelection} beats ${playerSelection}`;
     computerScore++;
   }
 }
 
-function game() {
-  let roundTracker = 1;
+// function game() {
+//   let roundTracker = 1;
 
-  // Play 5 rounds in a row
-  while (roundTracker <= 1) {
-    console.log(`Round ${roundTracker}`);
-    playSingleRound(getPlayerChoice(), getComputerChoice());
-    ++roundTracker;
-    console.log('Player Score:', playerScore, 'Computer Score:', computerScore);
-  }
+//   // Play 5 rounds in a row
+//   while (roundTracker <= 1) {
+//     console.log(`Round ${roundTracker}`);
+//     playSingleRound(getPlayerChoice(), getComputerChoice());
+//     ++roundTracker;
+//     console.log('Player Score:', playerScore, 'Computer Score:', computerScore);
+//   }
 
-  playerScore > computerScore
-    ? console.log('You Win!!!')
-    : console.log('You Lose!!!');
-}
-
-// game();
+//   playerScore > computerScore
+//     ? console.log('You Win!!!')
+//     : console.log('You Lose!!!');
+// }
