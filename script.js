@@ -36,12 +36,7 @@ const computerSelectionLogo = document.querySelector('.computer-selection');
 const playerScoreEl = document.querySelector('.player-score');
 const computerScoreEl = document.querySelector('.computer-score');
 const playerChoices = document.querySelector('.player-choices');
-const rock = document.querySelector('.rock');
-const paper = document.querySelector('.paper');
-const scissors = document.querySelector('.scissors');
-
-// playerScoreEl.innerText = playerScore;
-// computerScoreEl.innerText = computerScore;
+const chooseCarefully = document.querySelector('.choose-carefully');
 
 ////////////////////////////////////////////////////////////////
 
@@ -86,36 +81,12 @@ function gameOver() {
 }
 
 //////////////////////////////////////////////////
-// add score keeping
-
-///////////////////////////////////////////////
-// function getPlayerChoice() {
-//   let playerChoice = playerChoicePrompt();
-
-//   while (playerChoice === null) {
-//     alert('Please input rock, paper, or scissors');
-//     playerChoice = playerChoicePrompt();
-//   }
-
-//   playerChoice = playerChoice.toLowerCase();
-
-//   while (
-//     playerChoice !== 'rock' &&
-//     playerChoice !== 'paper' &&
-//     playerChoice !== 'scissors'
-//   ) {
-//     alert('Must enter rock, paper, or scissors');
-//     playerChoice = playerChoicePrompt().toLowerCase();
-//   }
-
-//   return playerChoice;
-// }
 
 function playSingleRound(playerSelection, computerSelection) {
   // If a tie, replay the round
 
   if (playerSelection === computerSelection) {
-    console.log('Tie!!!');
+    chooseCarefully.innerText = "It's a tie!";
   }
 
   // Winning scenarios for player
@@ -124,10 +95,10 @@ function playSingleRound(playerSelection, computerSelection) {
     (playerSelection === 'rock' && computerSelection === 'scissors') ||
     (playerSelection === 'scissors' && computerSelection === 'paper')
   ) {
-    console.log('Good job! You won!');
+    chooseCarefully.innerText = 'You won!';
     playerScore++;
   } else {
-    console.log('Aww...try again.');
+    chooseCarefully.innerText = 'You lost!';
     computerScore++;
   }
 }
