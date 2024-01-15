@@ -11,6 +11,7 @@ const computerScoreEl = document.querySelector('.computer-score');
 const playerChoices = document.querySelector('.player-choices');
 const chooseCarefully = document.querySelector('.choose-carefully');
 const rockBeatsPaperMsg = document.querySelector('.score-txt');
+const bodyEl = document.querySelector('body');
 
 ////////////////////////////////////////////////////////////////
 
@@ -49,10 +50,9 @@ function setSelectionImg() {
 function gameOver() {
   if (playerScore === 5 || computerScore === 5) {
     playerChoices.classList.toggle('disable-click');
+    bodyEl.classList.toggle('opacity');
   }
 }
-
-//////////////////////////////////////////////////
 
 function playSingleRound(playerSelection, computerSelection) {
   // If a tie, replay the round
@@ -77,19 +77,3 @@ function playSingleRound(playerSelection, computerSelection) {
     computerScore++;
   }
 }
-
-// function game() {
-//   let roundTracker = 1;
-
-//   // Play 5 rounds in a row
-//   while (roundTracker <= 1) {
-//     console.log(`Round ${roundTracker}`);
-//     playSingleRound(getPlayerChoice(), getComputerChoice());
-//     ++roundTracker;
-//     console.log('Player Score:', playerScore, 'Computer Score:', computerScore);
-//   }
-
-//   playerScore > computerScore
-//     ? console.log('You Win!!!')
-//     : console.log('You Lose!!!');
-// }

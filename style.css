@@ -6,9 +6,6 @@ body {
   min-height: -webkit-fill-available;
   display: flex;
   flex-direction: column;
-  /* justify-content: center;
-  align-items: stretch;  */
-  /* flex: 1; */
 }
 
 .header {
@@ -62,15 +59,6 @@ body {
   gap: 30px;
 }
 
-.rock {
-}
-
-.paper {
-}
-
-.scissors {
-}
-
 .footer {
   border-style: solid;
   border-color: black;
@@ -82,4 +70,8 @@ body {
 
 .disable-click {
   pointer-events: none;
+}
+
+.opacity {
+  opacity: 0.3;
 }
