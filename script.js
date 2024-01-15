@@ -35,44 +35,26 @@ const playerSelectionLogo = document.querySelector('.player-selection');
 const computerSelectionLogo = document.querySelector('.computer-selection');
 const playerScoreEl = document.querySelector('.player-score');
 const computerScoreEl = document.querySelector('.computer-score');
-
-playerScoreEl.innerText = playerScore;
-computerScoreEl.innerText = computerScore;
-
+const playerChoices = document.querySelector('.player-choices');
 const rock = document.querySelector('.rock');
 const paper = document.querySelector('.paper');
 const scissors = document.querySelector('.scissors');
 
+playerScoreEl.innerText = playerScore;
+computerScoreEl.innerText = computerScore;
+
 // reduce this code, add one event listener to all the divs and if it matches the text then change accordingly
+////////////////////////////////////////////////////////////////
 
-rock.addEventListener('click', () => {
-  playerSelection = 'rock';
-  playerSelectionLogo.innerText = playerSelection;
-  getComputerChoice();
-  computerSelectionLogo.innerText = computerSelection;
-  playSingleRound(playerSelection, computerSelection);
-  playerScoreEl.innerText = playerScore;
-  computerScoreEl.innerText = computerScore;
-});
+playerChoices.addEventListener('click', e => {
+  playerSelection = e.target.className;
 
-paper.addEventListener('click', () => {
-  playerSelection = 'paper';
-  playerSelectionLogo.innerText = playerSelection;
   getComputerChoice();
-  computerSelectionLogo.innerText = computerSelection;
+  setSelectionImg();
   playSingleRound(playerSelection, computerSelection);
-  playerScoreEl.innerText = playerScore;
-  computerScoreEl.innerText = computerScore;
-});
+  setScores();
 
-scissors.addEventListener('click', () => {
-  playerSelection = 'scissors';
-  playerSelectionLogo.innerText = playerSelection;
-  getComputerChoice();
-  computerSelectionLogo.innerText = computerSelection;
-  playSingleRound(playerSelection, computerSelection);
-  playerScoreEl.innerText = playerScore;
-  computerScoreEl.innerText = computerScore;
+  // gameOver();
 });
 
 ///////////////////////////////////////////////////
@@ -80,14 +62,30 @@ scissors.addEventListener('click', () => {
 function getComputerChoice() {
   let computerChoice = Math.floor(Math.random() * 3);
 
-  return computerChoice === 0
+  computerChoice === 0
     ? (computerSelection = 'rock')
     : computerChoice === 1
     ? (computerSelection = 'paper')
     : (computerSelection = 'scissors');
 }
 
-////////////////////////////
+function setScores() {
+  playerScoreEl.innerText = playerScore;
+  computerScoreEl.innerText = computerScore;
+}
+
+function setSelectionImg() {
+  playerSelectionLogo.innerText = playerSelection;
+  computerSelectionLogo.innerText = computerSelection;
+}
+
+function gameOver() {
+  if (playerScore === 5 || computerScore === 5) {
+    alert('Game Over');
+  }
+}
+
+//////////////////////////////////////////////////
 // add score keeping
 
 ///////////////////////////////////////////////
