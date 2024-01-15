@@ -23,8 +23,31 @@ body {
 .container {
   border-style: solid;
   border-color: black;
-  /* height: 100px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   flex: 1;
+}
+
+.choose-carefully {
+  text-align: center;
+}
+
+.score-txt {
+  text-align: center;
+}
+
+.logos-wrapper {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  gap: 30px;
+}
+
+.user-choices {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
 
 .footer {
