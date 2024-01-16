@@ -12,6 +12,10 @@ const playerChoices = document.querySelector('.player-choices');
 const chooseCarefully = document.querySelector('.choose-carefully');
 const rockBeatsPaperMsg = document.querySelector('.score-txt');
 const bodyEl = document.querySelector('body');
+const overlay = document.querySelector('#overlay');
+const header = document.querySelector('.header');
+const container = document.querySelector('.container');
+const footer = document.querySelector('.footer');
 
 ////////////////////////////////////////////////////////////////
 
@@ -48,9 +52,12 @@ function setSelectionImg() {
 }
 
 function gameOver() {
-  if (playerScore === 5 || computerScore === 5) {
+  if (playerScore === 1 || computerScore === 1) {
     playerChoices.classList.toggle('disable-click');
-    bodyEl.classList.toggle('opacity');
+    header.classList.toggle('opacity');
+    container.classList.toggle('opacity');
+    footer.classList.toggle('opacity');
+    overlay.style.display = 'flex';
   }
 }
 
