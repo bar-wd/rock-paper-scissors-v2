@@ -11,11 +11,12 @@ const computerScoreEl = document.querySelector('.computer-score');
 const playerChoices = document.querySelector('.player-choices');
 const chooseCarefully = document.querySelector('.choose-carefully');
 const rockBeatsPaperMsg = document.querySelector('.score-txt');
-const bodyEl = document.querySelector('body');
 const overlay = document.querySelector('#overlay');
 const header = document.querySelector('.header');
 const container = document.querySelector('.container');
 const footer = document.querySelector('.footer');
+const winLoseMsg = document.querySelector('.win-lose-msg');
+const scoreMsg = document.querySelector('.score-msg');
 
 ////////////////////////////////////////////////////////////////
 
@@ -28,6 +29,8 @@ playerChoices.addEventListener('click', e => {
   setScores();
   gameOver();
 });
+
+overlay.addEventListener('click', resetGame);
 
 ///////////////////////////////////////////////////
 
@@ -52,13 +55,27 @@ function setSelectionImg() {
 }
 
 function gameOver() {
-  if (playerScore === 1 || computerScore === 1) {
+  if (playerScore === 5 || computerScore === 5) {
     playerChoices.classList.toggle('disable-click');
     header.classList.toggle('opacity');
     container.classList.toggle('opacity');
     footer.classList.toggle('opacity');
     overlay.style.display = 'flex';
+    winLoseMsg.innerText = chooseCarefully.innerText;
+    scoreMsg.innerText = `Player: ${playerScore} Computer: ${computerScore}`;
   }
+}
+
+function resetGame() {
+  playerChoices.classList.toggle('disable-click');
+  header.classList.toggle('opacity');
+  container.classList.toggle('opacity');
+  footer.classList.toggle('opacity');
+  overlay.style.display = 'none';
+  playerScoreEl.innerText = '0';
+  computerScoreEl.innerText = '0';
+  chooseCarefully.innerText = 'Choose carefully...';
+  rockBeatsPaperMsg.innerText = 'First score to 5 points wins the game.';
 }
 
 function playSingleRound(playerSelection, computerSelection) {
