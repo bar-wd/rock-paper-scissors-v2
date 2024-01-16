@@ -76,6 +76,8 @@ function resetGame() {
   computerScoreEl.innerText = '0';
   chooseCarefully.innerText = 'Choose carefully...';
   rockBeatsPaperMsg.innerText = 'First score to 5 points wins the game.';
+  playerSelectionLogo.innerText = '?';
+  computerSelectionLogo.innerText = '?';
 }
 
 function playSingleRound(playerSelection, computerSelection) {
