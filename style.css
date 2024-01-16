@@ -41,16 +41,14 @@ body {
   gap: 30px;
 }
 
-.player-selection {
-}
-
-.player-score {
-}
-
-.computer-selection {
-}
-
-.computer-score {
+.rock,
+.paper,
+.scissors {
+  border-style: solid;
+  border-color: black;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
 }
 
 .player-choices {
@@ -83,7 +81,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.452); /* Black background with opacity */
+  background-color: rgba(0, 0, 0, 0.784); /* Black background with opacity */
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
   cursor: pointer; /* Add a pointer on hover */
   justify-content: center;
